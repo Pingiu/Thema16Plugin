@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="thema16changeproductprice" translate="label" sortOrder="1000">
+            <label>Thema16ChangeProductPrice</label>
+        </tab>
+        <section id="thema16changeproductprice" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+
+            <label>Thema16ChangeProductPrice</label>
+            <tab>thema16changeproductprice</tab>
+            <resource>Perspective_Thema16ChangeProductPrice::perspective</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabledt16ch" type="select" translate="label,comment,tooltip" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>perspective/general/enabled</config_path>
+                    <comment>Helpful message about using this field</comment>
+                    <tooltip>Longer helpful message about using this field</tooltip>
+                </field>
+
+                <field id="Category" type="multiselect" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Category</label>
+                    <source_model>Perspective\Thema16ChangeProductPrice\Model\Config\Source\ListMode</source_model>
+                    <config_path>perspective/general/Category</config_path>
+                    <depends>
+                        <field id="enabledt16ch">1</field>
+                    </depends>
+                </field>
+                <field id="PriceReductionPercentage" type="text" translate="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PriceReductionPercentage %</label>
+                    <validate>required-entry number</validate>
+                    <config_path>perspective/general/PriceReductionPercentage</config_path>
+                    <depends>
+                        <field id="enabledt16ch">1</field>
+                    </depends>
+                </field>
+                              
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,11 @@
+<?php
+/** @var \Perspective\Thema15exercise1\Block\Template $block */
+$viewModel = $block->getViewModel();
+$currentProduct = $viewModel->getCurrentProduct();
+
+if ($currentProduct->getData('Social') && $viewModel->isEnabled()) {
+    
+echo '<b>Скидка на социальный продукт: </b>' . $viewModel->getDiscount(). '%' . '<br />';
+echo '<b>Стоимость с учетом скидки: </b>' . $currentProduct->getFinalPrice() - ($currentProduct->getFinalPrice() * $viewModel->getDiscount()/100). '$' . '<br />';
+}
+?>
